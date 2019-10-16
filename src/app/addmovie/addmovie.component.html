@@ -1,0 +1,38 @@
+<div class="col-md-4 offset-4 mt-4 mb-4 card card-body">
+    <form action="" [formGroup]="form" (ngSubmit)="loginData(form)">
+       <div class="form-group">
+            <h1 class="text-center text-white bg-warning">Add Movie</h1>
+       </div>
+        <div class="form-group">
+            <input type="text" name="addmovie" id="addmovie" class="form-control" placeholder="Add Movie" formControlName="addmovie">
+             <div class="" *ngIf="addmovie.touched && addmovie.invalid">
+                  <p *ngIf="addmovie.errors.required" class="text-danger">*this field is required</p>
+             </div>
+        </div>
+        <div class="form-group">
+            <input type="text" name="movietitle" id="movietitle" class="form-control" placeholder="Movie Title" formControlName="movietitle">
+            <div class="" *ngIf="movietitle.touched && movietitle.invalid">
+                <p *ngIf="movietitle.errors.required" class="text-danger">*this field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="text" name="movieimgurl" id="movieimgurl" class="form-control" placeholder="Movie img Url" formControlName="movieimgurl">
+            <div class="" *ngIf="movieimgurl.touched && movieimgurl.invalid">
+                <p *ngIf="movieimgurl.errors.required" class="text-danger">*this field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+                <textarea name="moviedescription" id="moviedescription" cols="30" rows="10" class="form-control" placeholder="Movie Description" formControlName="moviedescription"></textarea>
+            
+
+            <div class="" *ngIf="moviedescription.touched && moviedescription.invalid">
+                <p *ngIf="moviedescription.errors.required" class="text-danger">*this field is required</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="float-right btn btn-outline-success"[disabled]="form.invalid">Add</button>
+        </div>
+    </form>
+</div>
+
