@@ -1,0 +1,5 @@
+package com.tyss.assessment.dto;
+
+public class InformationBean {
+
+}

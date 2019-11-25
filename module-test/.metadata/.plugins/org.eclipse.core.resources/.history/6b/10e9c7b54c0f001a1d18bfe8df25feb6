@@ -1,0 +1,5 @@
+package com.tyss.assessment.dao;
+
+public interface InformationDAO {
+
+}
