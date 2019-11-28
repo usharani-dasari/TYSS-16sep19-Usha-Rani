@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+   
+   <bean id="hello" class="com.tyss.springcore.di.Hello" init-method="init" destroy-method="destroy"><!-- scope="prototype" -->
+   			<property name="msg" value="I Love Java"/>
+   			<property name="map">
+   				<map>
+   				   <entry key="One" value="1"/>
+   				   <entry key="Two" value="2"/>
+   			    </map>
+   			</property>
+   			<!-- <property name="list">
+   				<entry value="13"/>
+   				<entry value="39"/>
+   			</property> -->
+   </bean>
+   
+   <bean id="dog" class="com.tyss.springcore.di.Dog" primary="true"/>
+   
+   <bean id="human" class="com.tyss.springcore.di.Human" />
+   
+   <bean id="animal" class="com.tyss.springcore.di.Cat"/>
+   
+   <bean id="pet" class="com.tyss.springcore.di.Pet" autowire="byName">
+  			 <property name="name" value="puppy"/> 
+  			 <!-- <property name="animal" ref="dog"/> -->
+ 
+   <!-- <constructor-arg name="name" value="snoopy"/> -->
+   <!-- <constructor-arg name="animal" ref="dog"/> -->
+   </bean>
+   
+   <bean id="beanPostProcessor" class="com.tyss.springcore.di.BeanPostProcessorClass"/>
+   <bean id="beanFactoryPostProcessor" class="com.tyss.springcore.di.BeanFactoryPostProcessorClass"/>
+   
+   
+</beans>
