@@ -1,0 +1,66 @@
+<!-- <div class="text-danger" *ngIf='error'>{{error}}</div> -->
+<div class="card-body">
+    <form action="" class="col-md-4 offset-3 card card-body mt-5 mb-5" #form="ngForm" (ngSubmit)="modifyProduct(form)">
+        <div class="form-group">
+            <div class="form-group">
+                <input type="number" name="pid" id="pid" class="form-control" placeholder="Enter Id Of The Product..."
+                    #pid="ngModel" ngModel required pattern="[0-9]">
+            </div>
+            <div *ngIf="pid.touched && pid.invalid">
+                <p class="text-danger" *ngIf="pid.errors.required" style="font-size:smaller;">*this field is required</p>
+                <p class="text-danger" *ngIf="pid.errors.pattern" style="font-size:smaller;">*Id should be a number</p>
+            </div>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name of the Product..." #name="ngModel"
+                ngModel  pattern="^[A-Za-z]+$">
+        </div>
+        <div *ngIf="name.touched && name.invalid">
+            <p class="text-danger" *ngIf="name.errors.pattern" style="font-size:smaller;">*enter valid name</p>
+        </div>
+       
+        <div class="form-group">
+            <input type="text" name="category" id="category" class="form-control" placeholder="Enter Product Category..." #category="ngModel"
+                ngModel pattern="^[A-Za-z]+$">
+        </div>
+        <div *ngIf="category.touched && category.invalid">
+            <p class="text-danger" *ngIf="category.errors.pattern" style="font-size:smaller;">*enter valid category</p>
+        </div>
+        <div class="form-group">
+            <input type="text" name="company" id="company" class="form-control" placeholder="Enter Company of the Product..." #company="ngModel"
+                ngModel required >
+        </div>
+        <div *ngIf="company.touched && company.invalid">
+            <p class="text-danger" *ngIf="company.errors.required" style="font-size:smaller;">*this field is required</p>
+        </div>
+
+
+        <div class="form-group">
+            <input type="number" name="quantity" id="quantity" class="form-control" placeholder="Enter Quantity..."
+                #quantity="ngModel" ngModel pattern="[0-9]">
+        </div>
+        <div *ngIf="quantity.touched && quantity.invalid">
+            <p class="text-danger" *ngIf="quantity.errors.pattern" style="font-size:smaller;">*quantity should be a number</p>
+        </div>
+
+        <div class="form-group">
+            <input type="number" name="price" id="price" class="form-control" placeholder="Enter Price Per Unit..."
+                #price="ngModel" ngModel pattern="[0-9]">
+        </div>
+        <div *ngIf="price.touched && price.invalid">
+            <p class="text-danger" *ngIf="price.errors.pattern" style="font-size:smaller;">*price should be a number</p>
+        </div>
+        <div class="form-group">
+            <input type="number" name="gst" id="gst" class="form-control" placeholder="Enter GST of current Product..."
+                #quantity="ngModel" ngModel pattern="[0-9]">
+        </div>
+        <div *ngIf="gst.touched && gst.invalid">
+            <p class="text-danger" *ngIf="gst.errors.pattern" style="font-size:smaller;">*gst should be a number</p>
+        </div>
+       
+       
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">Add Product</button>
+            <button type="reset" class="btn btn-outline-success float-left">Reset</button>
+        </div>
+    </form>
+</div>
+

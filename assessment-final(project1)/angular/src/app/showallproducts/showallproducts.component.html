@@ -1,0 +1,30 @@
+<div class="card-body">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Product Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Company</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>GST</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let product of products'>
+                <td>{{product.pid}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.category}}</td>
+                <td>{{product.company}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.gst}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button type="button"  (click)=clicked()>Add To Cart</button>
+</div>
+
